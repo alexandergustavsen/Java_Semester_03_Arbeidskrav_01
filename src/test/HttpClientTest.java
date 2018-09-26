@@ -44,9 +44,8 @@ public class HttpClientTest {
         assertThat(response.getBody()).isEqualTo("Hello world!");
     }
 
-
     public static void main(String[] args) throws IOException {
-        try(Socket socket = new Socket("localhost", 10080)) {
+        try(Socket socket = new Socket("localhost", 8080)) {
 
             socket.getOutputStream().write("GET /echo?status=307&Location=http%3A%2F%2Fwww.google.com HTTP/1.1\r\n".getBytes());
             socket.getOutputStream().write("Host: urlecho.appspot.com\r\n".getBytes());
@@ -62,6 +61,4 @@ public class HttpClientTest {
 
         }
     }
-
-
 }

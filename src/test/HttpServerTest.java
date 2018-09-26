@@ -13,7 +13,7 @@ public class HttpServerTest {
 
     @BeforeClass
     public static void startServer() throws IOException {
-        server = new HttpEchoServer(0);
+        server = new HttpEchoServer(10080);
     }
 
     @Test
@@ -53,15 +53,15 @@ public class HttpServerTest {
     }
 
     public static void main(String[] args) throws IOException {
-        try(ServerSocket serverSocket = new ServerSocket(10080)) {
+        try(ServerSocket serverSocket = new ServerSocket(8080)) {
             Socket socket = serverSocket.accept();
             socket.getOutputStream().write(("HTTP/1.1 200 OK\r\n").getBytes());
             socket.getOutputStream().write("Content-Type: text/html; charset=utf-8\r\n".getBytes());
             socket.getOutputStream().write(("Location: http://www.google.com\r\n").getBytes());
-            socket.getOutputStream().write("Server: Kristiania Java Server!!\r\n".getBytes());
+            socket.getOutputStream().write("Server: Kristiania Super Server!\r\n".getBytes());
             socket.getOutputStream().write(("Content-Length: 13\r\n").getBytes());
             socket.getOutputStream().write("\r\n".getBytes());
-            socket.getOutputStream().write("Hello world!\r\n".getBytes());
+            socket.getOutputStream().write("We did it!\r\n".getBytes());
         }
     }
 

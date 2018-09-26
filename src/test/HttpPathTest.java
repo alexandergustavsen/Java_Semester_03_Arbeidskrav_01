@@ -9,8 +9,7 @@ public class HttpPathTest {
         HttpPath path = new HttpPath("/echo?status=200");
         HttpQuery query = path.getQuery();
         assertThat(query.toString()).isEqualTo("status=200");
-        assertThat(query.getParameter("status"))
-                .isEqualTo("200");
+        assertThat(query.getParameter("status")).isEqualTo("200");
     }
 
     @Test
@@ -18,10 +17,8 @@ public class HttpPathTest {
         HttpPath path = new HttpPath("/echo?status=404&body=Hello");
         HttpQuery query = path.getQuery();
         assertThat(query.toString()).isEqualTo("status=404&body=Hello");
-        assertThat(query.getParameter("status"))
-                .isEqualTo("404");
-        assertThat(query.getParameter("body"))
-                .isEqualTo("Hello");
+        assertThat(query.getParameter("status")).isEqualTo("404");
+        assertThat(query.getParameter("body")).isEqualTo("Hello");
     }
 
     @Test

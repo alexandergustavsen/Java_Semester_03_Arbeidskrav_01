@@ -49,4 +49,7 @@ public class HttpQuery {
     }
 
 
+    public Map<String, String> getParameters() {
+        return parameters;
+    }
 }
